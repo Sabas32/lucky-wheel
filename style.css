@@ -1,0 +1,115 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+:root {
+  --background-color: rgb(0, 4, 2);
+  --secondary-color: rgb(0, 255, 119);
+
+  --innerCirWidth: 300px;
+  --outerCirWidth: 500px;
+}
+body {
+  overflow: hidden;
+}
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--background-color);
+}
+.mainCir {
+  width: var(--outerCirWidth);
+  aspect-ratio: 1/1;
+  border: solid 0.3em var(--secondary-color);
+  border-radius: 100%;
+  box-shadow: 0 0 0.6em var(--secondary-color);
+  background: transparent;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* overflow: hidden; */
+  transition: ease-in-out 10s;
+  position: absolute;
+}
+.mainCir.inner {
+  width: var(--innerCirWidth);
+  background: var(--background-color);
+}
+.mainCir .line-sect {
+  height: 100%;
+  background: var(--secondary-color);
+  box-shadow: 0 0 0.3em var(--secondary-color);
+  width: 0.2em;
+  max-width: 0.3e;
+
+  position: absolute;
+  transform: rotate(calc(45deg * var(--i)));
+}
+.mainCir b {
+  height: 100%;
+
+  width: 0.2em;
+  position: absolute;
+  transform: rotate(calc((45deg) * var(--i)));
+  font-size: 4em;
+  color: var(--secondary-color);
+  position: absolute;
+  text-shadow: 0 0 0.3em var(--secondary-color);
+  /* overflow: hidden; */
+}
+.spinButton {
+  position: absolute;
+  font-size: 50px;
+  background: var(--secondary-color);
+  aspect-ratio: 1/1;
+  padding: 0.5em;
+  box-shadow: 0 0 0.2em var(--secondary-color);
+  font-family: sans-serif;
+  font-weight: 300;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--background-color);
+  cursor: pointer;
+  user-select: none;
+  z-index: 5;
+}
+.numbers {
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  transform: rotate(22.5deg);
+  display: flex;
+  justify-content: center;
+  /* background: red/; */
+}
+.mainCir.inner b {
+  font-size: 40px;
+}
+.pointer {
+  width: 0.3em;
+  height: 4em;
+  background: red;
+  z-index: 10;
+  position: absolute;
+  border-radius: 100%;
+  /* top: 10px; */
+  /* transform: translateY(-180%); */
+  top: calc(var(--outerCirWidth) - var(--innerCirWidth) - 100px);
+  transform: translateY(-50%);
+}
+.wheel {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--outerCirWidth);
+  height: var(--outerCirWidth);
+}
